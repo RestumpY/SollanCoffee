@@ -5,7 +5,7 @@ if(!isset($_SESSION['login_id'])){
     header('Location: login.php');
     exit;
 }
-
+$date = new DateTime('now');
 $id = $_SESSION['login_id'];
 
 $get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
@@ -69,7 +69,7 @@ else{
         ._info p{
             color: #555555;
         }
-        /*
+        
         ._info a{
             display: inline-block;
             background-color: #E53E3E;
@@ -78,8 +78,8 @@ else{
             padding:5px 10px;
             border-radius: 2px;
             border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-*/
+            margin-left : 2px;
+    
 
         }
     </style>
@@ -90,11 +90,17 @@ else{
             <img src="<?php echo $user['profile_image']; ?>" alt="<?php echo $user['name']; ?>">
         </div>
         <div class="_info">
+            <p><?php echo $date->format( 'd/m/Y' );?></p>
             <h1><?php echo $user['name']; ?></h1>
             <p><?php echo $user['email']; ?></p>
+
             <a href="addCoffee.php">+1 café</button>
-            <br><br>
             <a href="logout.php">Logout</a>
+
+            <br>
+
+            <h4>Vous avez bu : <?php echo $user['totalCoffee']; ?> cafés ! </h4>
+            <p>Solde : <?php echo $user['totalCoffee']*0.30; ?>€</p>
         </div>
     </div>
 </body>
