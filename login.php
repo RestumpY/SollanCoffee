@@ -74,9 +74,41 @@ if(isset($_GET['code'])):
     }
     
 else: 
-    // Google Login Url = $client->createAuthUrl(); 
+
+    $url = $client->createAuthUrl();
+
+    
 ?>
 
-    <a class="login-btn" href="<?php echo $client->createAuthUrl(); ?>">Login</a>
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <div class="_container">
+        <div>
+            <center>
+                <img src="css/sollan.png" style="width : 150px;">
 
-<?php endif; ?>
+</center>
+
+        </div>
+        <br>
+        <center>
+                <a class="btn btn-outline-dark" href="<?php echo $url;?>" role="button" style="text-transform:none">
+
+                    <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                    Login with Google
+
+                </a>
+</center>
+        
+            <!-- Minified CSS and JS -->
+
+
+
+
+    </div>
+
+
+    <?php endif; ?>
