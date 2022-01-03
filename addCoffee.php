@@ -19,17 +19,13 @@ else{
 }
 
 $total = $user['totalCoffee'] + 1;
+    
+$update = mysqli_query($db_connection, "UPDATE users SET totalCoffee = $total WHERE google_id = '$user[google_id]'");
 
 
-
-
-    $update = mysqli_query($db_connection, "UPDATE users SET totalCoffee = $total WHERE google_id = '$id[0]'");
-
-    echo ($total);
     
     if($update){
-        $_SESSION['login_id'] = $id; 
-       //header('Location: home.php');
+       header('Location: home.php');
         exit;
     }
     else{
