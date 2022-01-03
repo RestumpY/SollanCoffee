@@ -24,65 +24,9 @@ else{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
     <title><?php echo $user['name']; ?></title>
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-        }
-        body{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f7ff;
-            padding: 10px;
-            margin: 0;
-        }
-        ._container{
-            max-width: 400px;
-            background-color: #ffffff;
-            padding: 20px;
-            margin: 0 auto;
-            border: 1px solid #cccccc;
-            border-radius: 2px;
-        }
-
-        ._img{
-            overflow: hidden;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto;
-            border-radius: 50%;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        ._img > img{
-            width: 100px;
-            min-height: 100px;
-        }
-        ._info{
-            text-align: center;
-        }
-        ._info h1{
-            margin:10px 0;
-            text-transform: capitalize;
-        }
-        ._info p{
-            color: #555555;
-        }
-        
-        ._info a{
-            display: inline-block;
-            background-color: #E53E3E;
-            color: #fff;
-            text-decoration: none;
-            padding:5px 10px;
-            border-radius: 2px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            margin-left : 2px;
-    
-
-        }
-    </style>
+  
 </head>
 <body>
     <div class="_container">
@@ -94,14 +38,17 @@ else{
             <h1><?php echo $user['name']; ?></h1>
             <p><?php echo $user['email']; ?></p>
 
-            <a href="addCoffee.php">+1 café</button>
-            <a href="logout.php">Logout</a>
+            <a style = "background-color : green;" href="addCoffee.php">+1 café</button>
+            <a style = "background-color : #E53E3E;" href="logout.php">Déconnexion</a>
 
             <br>
 
             <h4>Vous avez bu : <?php echo $user['totalCoffee']; ?> cafés ! </h4>
             <p>Solde : <?php echo $user['totalCoffee']*0.30; ?>€</p>
+            <img src="css/sollan.png" style="width:50px;"></img>
         </div>
+        
     </div>
+
 </body>
 </html>
