@@ -31,7 +31,7 @@ else{
 <body>
     <div class="_container">
         <div class="_img">
-            <img src="<?php echo $user['profile_image']; ?>" alt="<?php echo $user['name']; ?>">
+            <img src="<?php echo $user['profile_image']; ?>">
         </div>
         <div class="_info">
             <p><?php echo $date->format( 'd/m/Y' );?></p>
@@ -44,7 +44,7 @@ else{
             <br>
 
             <h4>Vous avez bu : <?php echo $user['totalCoffee']; ?> cafés ! </h4>
-            <p>Solde : <?php echo $user['totalCoffee']*0.30; ?>€</p>
+            <p>Solde : <?php echo number_format($user['totalCoffee']*0.30,2); ?>€</p>
             <img src="css/sollan.png" style="width:50px;"></img>
         </div>
         
