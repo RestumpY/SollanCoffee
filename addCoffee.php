@@ -26,6 +26,8 @@ $update = mysqli_query($db_connection, "UPDATE users SET totalCoffee = $total WH
     
     if($update){
        header('Location: home.php');
+       $_SESSION['style'] = 1 ;
+
         exit;
     }
     else{

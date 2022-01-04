@@ -17,6 +17,14 @@ else{
     header('Location: logout.php');
     exit;
 }
+
+if (isset($_SESSION['style'])){
+    $style = "display : block;";
+
+}
+else{
+    $style = "display : none;";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +37,11 @@ else{
   
 </head>
 <body>
+    
+    <div id ="notif" class="_notif" style="<?php echo $style;?>">
+        Votre café à bien été ajouté ! 
+    </div>
+    <br>
     <div class="_container">
         <div class="_img">
             <img src="<?php echo $user['profile_image']; ?>">
@@ -44,11 +57,19 @@ else{
             <br>
 
             <h4>Vous avez bu : <?php echo $user['totalCoffee']; ?> cafés ! </h4>
-            <p>Solde : <?php echo number_format($user['totalCoffee']*0.30,2); ?>€</p>
+            <p>Solde : <?php echo number_format($user['totalCoffee']*0.35,2); ?>€</p>
             <img src="css/sollan.png" style="width:50px;"></img>
         </div>
         
     </div>
+<script>
 
+    function pasNotif(){
+        var div = document.getElementById('notif');
+        div.style.display = 'none';
+    }
+
+    setInterval(pasNotif,3000);
+</script>
 </body>
 </html>
