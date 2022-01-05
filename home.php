@@ -8,10 +8,13 @@ if(!isset($_SESSION['login_id'])){
 $date = new DateTime('now');
 $id = $_SESSION['login_id'];
 
+
+
 $get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
 
 if(mysqli_num_rows($get_user) > 0){
     $user = mysqli_fetch_assoc($get_user);
+
 }
 else{
     header('Location: logout.php');
@@ -25,6 +28,13 @@ if (isset($_SESSION['style'])){
 else{
     $style = "display : none;";
 }
+
+$get_coffee = mysqli_query($db_connection, "SELECT * FROM `coffee` WHERE idUser = '$user[id]'");
+if(mysqli_num_rows($get_coffee) > 0){
+    $coffee = mysqli_fetch_assoc($get_coffee);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +47,6 @@ else{
   
 </head>
 <body>
-    
     <div id ="notif" class="_notif" style="<?php echo $style;?>">
         Votre café à bien été ajouté ! 
     </div>
@@ -56,8 +65,8 @@ else{
 
             <br>
 
-            <h4>Vous avez bu : <?php echo $user['totalCoffee']; ?> cafés ! </h4>
-            <p>Solde : <?php echo number_format($user['totalCoffee']*0.35,2); ?>€</p>
+            <h4>Vous avez bu : <?php echo  $coffee['totalCoffee']; ?> cafés ! </h4>
+            <p>Solde : <?php echo number_format($coffee['totalCoffee']*0.35,2); ?>€</p>
             <img src="css/sollan.png" style="width:50px;"></img>
         </div>
         

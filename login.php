@@ -23,6 +23,8 @@ $client->addScope("email");
 $client->addScope("profile");
 
 
+
+
 if(isset($_GET['code'])):
 
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
@@ -40,10 +42,16 @@ if(isset($_GET['code'])):
         $full_name = mysqli_real_escape_string($db_connection, trim($google_account_info->name));
         $email = mysqli_real_escape_string($db_connection, $google_account_info->email);
         $profile_pic = mysqli_real_escape_string($db_connection, $google_account_info->picture);
-        $totalCoffee = mysqli_real_escape_string($db_connection, $google_account_info->totalCoffee);
 
+
+                
+       
         // checking user already exists or not
-        $get_user = mysqli_query($db_connection, "SELECT `google_id`, `totalCoffee` FROM `users` WHERE `google_id`='$id'");
+        $get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
+
+        
+
+
         if(mysqli_num_rows($get_user) > 0){
 
             $_SESSION['login_id'] = $id; 
@@ -53,10 +61,25 @@ if(isset($_GET['code'])):
         }
         else{
 
+
             // if user not exists we will insert the user
-            $insert = mysqli_query($db_connection, "INSERT INTO `users`(`google_id`,`name`,`email`,`profile_image`,`totalCoffee`) VALUES('$id','$full_name','$email','$profile_pic',NULL)");
+            $insert = mysqli_query($db_connection, "INSERT INTO `users`(`google_id`,`name`,`email`,`profile_image`) VALUES('$id','$full_name','$email','$profile_pic')");
+
+
+            
+
+
+            
 
             if($insert){
+                
+                $get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
+                if(mysqli_num_rows($get_user) > 0){
+                $user = mysqli_fetch_assoc($get_user);
+                }
+                $idUser = $user['id'];
+                $insert1 = mysqli_query($db_connection, "INSERT INTO `coffee` VALUES($idUser,0)");
+
                 $_SESSION['login_id'] = $id; 
                 header('Location: home.php');
                 exit;

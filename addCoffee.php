@@ -18,9 +18,9 @@ else{
     exit;
 }
 
-$total = $user['totalCoffee'] + 1;
+
     
-$update = mysqli_query($db_connection, "UPDATE users SET totalCoffee = $total WHERE google_id = '$user[google_id]'");
+$update = mysqli_query($db_connection, "UPDATE coffee SET totalCoffee = totalCoffee + 1 WHERE idUser = '$user[id]'");
 
 
     
