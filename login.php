@@ -126,11 +126,6 @@ else:
                 </a>
 </center>
         
-            <!-- Minified CSS and JS -->
-
-
-
-
     </div>
 
 

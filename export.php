@@ -1,5 +1,5 @@
 <?php
-
+/*
 // Database Connection
 require("db_connection.php");
 
@@ -31,5 +31,5 @@ if (count($users) > 0) {
         
     }
 }
-
+*/
 ?>
