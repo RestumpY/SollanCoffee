@@ -54,7 +54,7 @@ if(mysqli_num_rows($get_coffee) > 0){
     </div>
     <br>
     <div class="_container">
-        
+
         <div class="_img">
             <img src="<?php echo $user['profile_image'];?>"></img>
         </div>
