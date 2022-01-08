@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 header('Content-Type: text/csv; charset=utf-8');
-header('Content-Disposition: attachment; filename=Users.csv');
+header('Content-Disposition: attachment; filename=SollanCoffee.csv');
 $fp = fopen('php://output', 'w');
 $delimiter = ";";
 fputcsv($fp,array('Nom','TotalCoffee'),$delimiter);
