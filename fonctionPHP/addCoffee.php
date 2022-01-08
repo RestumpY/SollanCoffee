@@ -1,5 +1,5 @@
 <?php
-require 'db_connection.php';
+require '../db_connection.php';
 
 if(!isset($_SESSION['login_id'])){
     header('Location: login.php');
@@ -25,7 +25,7 @@ $update = mysqli_query($db_connection, "UPDATE coffee SET totalCoffee = totalCof
 
     
     if($update){
-       header('Location: home.php');
+       header('Location: ../home.php');
        $_SESSION['style'] = 1 ;
 
         exit;

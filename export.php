@@ -1,10 +1,11 @@
 <?php
-/*
+
 // Database Connection
 require("db_connection.php");
 
 // get Users
-$query = "SELECT name, totalCoffee FROM users";
+$query = "SELECT name, totalCoffee FROM users, coffee WHERE id = idUser
+";
 if (!$result = mysqli_query($db_connection, $query)) {
     exit(mysqli_error($db_connection));
 }
@@ -31,5 +32,5 @@ if (count($users) > 0) {
         
     }
 }
-*/
+
 ?>

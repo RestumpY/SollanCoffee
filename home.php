@@ -54,16 +54,18 @@ if(mysqli_num_rows($get_coffee) > 0){
     </div>
     <br>
     <div class="_container">
+        
         <div class="_img">
             <img src="<?php echo $user['profile_image'];?>"></img>
         </div>
+
         <div class="_info">
 
             <p><?php echo $date->format( 'd/m/Y' );?></p>
             <h1><?php echo $user['name']; ?></h1>
             <p><?php echo $user['email']; ?></p>
 
-            <a style="background-color : green;" href="addCoffee.php">+1 café</a>
+            <a style="background-color : green;" href="fonctionPHP/addCoffee.php">+1 café</a>
             <a style="background-color : #E53E3E;" href="logout.php">Déconnexion</a>
 
             <br>
