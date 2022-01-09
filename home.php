@@ -44,7 +44,9 @@ if(mysqli_num_rows($get_coffee) > 0){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title><?php echo $user['name']; ?></title>
 
 </head>
@@ -66,19 +68,22 @@ if(mysqli_num_rows($get_coffee) > 0){
             <h1><?php echo $user['name']; ?></h1>
             <p><?php echo $user['email']; ?></p>
 
-            <a style="background-color : green;" href="fonctionPHP/addCoffee.php">+1 café</a>
-            <a style="background-color : #E53E3E;" href="logout.php">Déconnexion</a>
+            <a style="background-color : green;" href="fonctionPHP/addCoffee.php">+1 <i class="fas fa-coffee"></i></a>
+            <a style="background-color : #E53E3E;" href="logout.php"><i class="fas fa-sign-out-alt"></i></a>
 
             <br>
 
             <h4>Vous avez bu : <?php echo  $coffee['totalCoffee']; ?> cafés ! </h4>
             <p>Solde : <?php echo number_format($coffee['totalCoffee']*0.35,2); ?>€</p>
             <!--<img src="css/sollan.png" style="width:50px;"></img>-->
-            <a href="fonctionPHP/exportCsv.php"><i class="fas fa-file-download"></i></a>
+
 
         </div>
-        
+        <center>
+            <a style="color : black;" href="fonctionPHP/exportCsv.php">
+                <i class="fas fa-file-download"></i></a>
 
+        </center>
     </div>
     <script>
         function pasNotif() {
