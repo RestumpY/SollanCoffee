@@ -26,6 +26,7 @@ if (isset($_SESSION['style'])){
 
 }
 else{
+
     $style = "display : none;";
 }
 
@@ -82,6 +83,7 @@ if(mysqli_num_rows($get_coffee) > 0){
         <center>
             <a style="color : black;" href="fonctionPHP/exportCsv.php">
                 <i class="fas fa-file-download"></i></a>
+                <a style="color : red;" href="fonctionPHP/resetAllCoffee.php"><i class="fas fa-redo"></i></a>
 
         </center>
     </div>
