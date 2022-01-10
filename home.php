@@ -77,15 +77,21 @@ if(mysqli_num_rows($get_coffee) > 0){
             <h4>Vous avez bu : <?php echo  $coffee['totalCoffee']; ?> cafés ! </h4>
             <p>Solde : <?php echo number_format($coffee['totalCoffee']*0.35,2); ?>€</p>
             <!--<img src="css/sollan.png" style="width:50px;"></img>-->
-
-
-        </div>
-        <center>
-            <a style="color : black;" href="fonctionPHP/exportCsv.php">
+            <br>
+            <?php if($user['type']!= NULL) { ?>
+            <center>
+            <a style="background-color : grey; color : white;" href="fonctionPHP/exportCsv.php">Exporter
                 <i class="fas fa-file-download"></i></a>
-                <a style="color : red;" href="fonctionPHP/resetAllCoffee.php"><i class="fas fa-redo"></i></a>
+                <a style="background-color : black; color : white;" href="fonctionPHP/resetAllCoffee.php"><i class="fas fa-redo"></i></a>
 
         </center>
+        <?php
+        }
+        ?>
+
+        </div>
+
+        
     </div>
     <script>
         function pasNotif() {

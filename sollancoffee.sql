@@ -44,6 +44,7 @@ CREATE TABLE `users` (
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `profile_image` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `type` int (1) NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

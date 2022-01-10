@@ -63,7 +63,7 @@ if(isset($_GET['code'])):
 
 
             // if user not exists we will insert the user
-            $insert = mysqli_query($db_connection, "INSERT INTO `users`(`google_id`,`name`,`email`,`profile_image`) VALUES('$id','$full_name','$email','$profile_pic')");
+            $insert = mysqli_query($db_connection, "INSERT INTO `users`(`google_id`,`name`,`email`,`profile_image`,`type`) VALUES('$id','$full_name','$email','$profile_pic',NULL)");
 
 
             
