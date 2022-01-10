@@ -18,11 +18,11 @@ else{
     exit;
 }
 
-if($user['type']!= NULL) {
+
     
 $update = mysqli_query($db_connection, "UPDATE coffee SET totalCoffee = totalCoffee + 1 WHERE idUser = '$user[id]'");
 
-}
+
 
     
     if($update){
